@@ -9,6 +9,7 @@ const Stack = createStackNavigator();
 
 const generalOptions = {
   headerBackTitleVisible: false,
+  headerTitleAlign: 'center',
   headerStyle: {
     backgroundColor: '#7159c1',
   },
