@@ -20,7 +20,11 @@ function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Main" screenOptions={generalOptions}>
-        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen
+          name="Main"
+          options={{ title: 'Usuários' }}
+          component={Main}
+        />
         <Stack.Screen name="User" component={User} />
       </Stack.Navigator>
     </NavigationContainer>
