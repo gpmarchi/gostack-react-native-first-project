@@ -59,6 +59,12 @@ export default class User extends Component {
     this.setState({ refreshing: true, loading: true, stars: [] }, this.load);
   };
 
+  handleNavigate = repository => {
+    const { navigation } = this.props;
+
+    navigation.navigate('Repository', { repository });
+  };
+
   render() {
     const { stars, loading, refreshing } = this.state;
 
@@ -83,7 +89,7 @@ export default class User extends Component {
             onEndReached={this.loadMore}
             keyExtractor={star => String(star.id)}
             renderItem={({ item }) => (
-              <Starred>
+              <Starred onPress={() => this.handleNavigate(item)}>
                 <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
                 <Info>
                   <Title>{item.name}</Title>
@@ -109,4 +115,5 @@ User.propTypes = {
       }).isRequired,
     }),
   }).isRequired,
+  navigation: PropTypes.shape({ navigate: PropTypes.func }).isRequired,
 };
