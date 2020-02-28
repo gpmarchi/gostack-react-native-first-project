@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ActivityIndicator } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
@@ -36,10 +37,14 @@ export const Bio = styled.Text`
   text-align: center;
 `;
 
-export const Loading = styled.View`
+export const Loading = styled.ActivityIndicator.attrs({
+  size: 50,
+  color: '#7159c1',
+})`
   flex: 1;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 `;
 
 export const Stars = styled.FlatList.attrs({
